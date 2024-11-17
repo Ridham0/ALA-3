@@ -1,43 +1,41 @@
-$(document).ready(function(){
-     $('#team_slider').owlCarousel({
-          loop:true,
-          margin:35,
-          nav:true,
-          center: true,
-          dots: true,
-          responsive:{
-              0:{
-                  items:1
-              },
-              600:{
-                  items:3
-              },
-              1000:{
-                  items:3
-              }
-          }
-     })
-     $('#customer_slider').owlCarousel({
-          loop:true,
-          margin:0,
-          nav:true,
-          center: true,
-          navText:['<i class="fa-solid fa-angle-left"></i>','<i class="fa-solid fa-angle-right"></i>'],
-          animateOut:'animate__fadeOutLeft',
-          animateIn:'animate__fadeInRight',
-          autoplayHoverPause:true,
-          autoplay: true,
-          autoplayTimeout:2000,
-          responsive:{
-              0:{
-                  items:1
-              },
-              600:{
-                  items:3
-              },
-              1000:{
-                  items:1
-              }
-          }
-     })
+let menu = document.querySelector('#menu-btn');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () => {
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
+};
+
+window.onscroll = () => {
+    menu.classList.remove('fa-times');
+    navbar.classList.remove('active');
+};
+
+document.querySelectorAll('.image-slider img').forEach(images => {
+    images.onclick = () => {
+        var src = images.getAttribute('src');
+        document.querySelector('.main-home-image').src = src;
+    };
+});
+
+var swiper = new Swiper(".review-slider", {
+    spaceBetween: 20,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    loop: true,
+    grabCursor: true,
+    autoplay: {
+        delay: 7500,
+        disableOnInteraction: false,
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1
+        },
+        768: {
+            slidesPerView: 2
+        }
+    },
 });

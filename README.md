@@ -1,2 +1,3 @@
-# Coffee-House---Millennium
-This website for coffee house millenniur
+# Responsive Coffee Shop Website Design
+
+![preview img](/preview.png)
